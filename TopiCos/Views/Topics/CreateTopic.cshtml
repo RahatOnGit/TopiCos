@@ -1,0 +1,41 @@
+﻿@model Topic
+
+<form method="post">
+    <input type="hidden" asp-for="UserId" value="@ViewBag.UserId" />
+    <input type="hidden" asp-for="RoomId" value="@ViewBag.RoomId" />
+    <div class="col-lg-6 m-auto">
+        <div class="card">
+            <div class="card-header bg-success">
+                <h5 class="text-light text-center">Create a new topic</h5>
+                <hr />
+            </div>
+            <div class="card-body text-center">
+                
+                 
+
+                <div class="form-group">
+                   <input asp-for="Title" placeholder="Topic title" class="form-control" />
+                   <span class="text-danger" asp-validation-for="Title"></span>
+                </div>
+
+                <div class="form-group mt-2">
+                    <textarea id="myTextarea" placeholder="Topic Description" asp-for="Description" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group mt-2">
+                   <input class="btn btn-light" type="submit" value="Create" />
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+   
+
+</form>
+
+<script>
+    $(document).ready(function () {
+        $('textarea').autosize();
+    });
+</script>

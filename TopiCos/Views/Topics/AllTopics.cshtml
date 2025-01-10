@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Topic>
+
+<br />
+
+
+<div class="row">
+    <div class="col-12">
+        <h2 class="text-center text-primary">@ViewBag.RoomName</h2>
+        <p class="text-center">@ViewBag.RoomDesc</p>
+    </div>
+    <hr />
+</div>
+
+<div class="container">
+    <div class="row">
+@if(ViewBag.hasPer==true)
+{
+            <div class="col-sm">
+                <a asp-controller="Topics" asp-action="CreateTopic" asp-route-RoomId="@ViewBag.RoomId" class="btn btn-light"><i class="fa-solid fa-plus"></i>&nbsp; New Topic</a>
+            </div>
+
+            <div class="col-sm">
+                <a asp-controller="Room" asp-action="ShareRoomID" asp-route-RoomId="@ViewBag.RoomId" class="btn btn-light">Share Room ID</a>
+
+            </div>
+
+            @if (ViewBag.hasRemovePer == true)
+            {
+
+                <div class="col-sm">
+                    <a class="btn btn-light" asp-controller="Permission"
+                       asp-route-RoomId="@ViewBag.RoomId" asp-action="RemoveUsers">Remove user from the Room</a>
+
+                </div>
+
+            }
+            
+}
+
+    </div>
+</div>
+
+
+
+
+
+<style>
+
+
+
+
+    .back-color:hover {
+        background-color: #D9CE52;
+    }
+</style>
+
+
+<div class="mt-5">
+
+    <div class="row">
+
+
+        @foreach (var topic in Model)
+        {
+            <div class="col-lg-3">
+                <div class="card back-color text-dark text-center mt-5">
+                    <div class="card-body">
+                        <h4>@topic.Title</h4>
+
+                        <a target="_blank" class="card-link text-dark stretched-link" asp-controller="Topics" asp-action="TopicAndComments"
+                           asp-route-TopicId="@topic.Id">Details</a>
+
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+</div>
+

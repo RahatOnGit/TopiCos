@@ -1,0 +1,48 @@
+﻿@model List<Room>
+
+    <h4 class="text-center bg-light p-2" text-primary>All Rooms</h4>
+    <hr/>
+   
+
+
+<style>
+
+
+
+
+    .back-color:hover {
+        background-color: #D9CE52;
+    }
+</style>
+
+<div>
+    <a class="btn btn-light" asp-controller="Room" asp-action="JoinRoom">Join in a new room</a>
+</div>
+
+<div class="mt-5">
+
+    <div class="row">
+
+
+        @foreach (var room in Model)
+        {
+            <div class="col-lg-3">
+                <div class="card back-color text-dark text-center mt-5">
+                    <div class="card-body">
+                        <a asp-controller="Topics" class="card-link text-dark stretched-link" asp-action="AllTopics" asp-route-RoomId="@room.Id">@room.Name</a>
+
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+</div>
+    
+
+    

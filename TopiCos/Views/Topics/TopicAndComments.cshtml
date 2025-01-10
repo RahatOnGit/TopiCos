@@ -1,0 +1,64 @@
+﻿@model dynamic
+
+<style>
+
+
+
+
+    .back-color{
+        background-color: #D9CE52;
+    }
+</style>
+
+
+<div class="mt-5">
+
+    <div class="container row">
+
+
+       
+         
+                <div class="card back-color text-dark text-center mt-5">
+                    <div class="card-body">
+                     
+                            <h4>@Model.Topic.User.UserName</h4>
+                            <p>@Model.Topic.Created</p>
+                    <hr />
+                        
+                        <h4>@Model.Topic.Title</h4>
+                        <p>@Model.Topic.Description</p>
+
+
+
+
+                    <a asp-controller="Comments" asp-action="AddComment" asp-route-TopicId="@Model.Topic.Id">Add A Comment</a>
+                    </div>
+          
+
+        </div>
+               
+                @foreach (var comment in Model.Comments)
+                {
+
+            <div class="mt-3">
+                <div class="container row">
+                    <div class="card">
+                      <div class="card-body">
+                    <p>@comment.User.UserName ,  @comment.Created</p>
+                     <p>@comment.CommentData </p>
+                </div>
+                     </div>
+
+
+                </div>
+            </div>
+                }
+
+
+
+
+                
+        
+
+    </div>
+</div>

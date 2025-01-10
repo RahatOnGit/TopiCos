@@ -1,0 +1,28 @@
+﻿@model Comment
+
+<form method="post" asp-route-TopicId="@ViewBag.TopicId">
+   
+   
+
+    <div class="col-lg-6 m-auto">
+        <div class="card">
+            <div class="card-header bg-success">
+                <h5 class="text-light text-center">Add a comment</h5>
+                <hr />
+            </div>
+            <div class="card-body text-center">
+                <div class="form-group">
+                    <input asp-for="CommentData"  class="form-control" />
+                    <span class="text-danger" asp-validation-for="CommentData"></span>
+                </div>
+
+                <div class="form-group mt-2">
+                    <input class="btn btn-light" type="submit" value="ADD" />
+                </div>
+
+                </div>
+
+        </div>
+
+    </div>
+</form>
