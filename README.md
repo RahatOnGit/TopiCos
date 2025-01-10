@@ -6,7 +6,7 @@
 - The room admin can only post topics.
 - The users of the room can only comments.
 - The room admin can delete users from the room.
-Some more features are coming in future In Sha Allah
+- Some more features are coming in future In Sha Allah
 
 
 
